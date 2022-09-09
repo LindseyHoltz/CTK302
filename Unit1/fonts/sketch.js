@@ -13,9 +13,9 @@ function draw() {
   background("black");
   fill("white");
   textFont(f1, 48);
-  text("hello there!", width/2, 100);
+  text("It's over Anakin! I have the high ground!", 0, 100, 490);
   textFont(f2, 24);
-  text("I am Obi Wan", width/2, 200);
+  text("You underestimate my power!", width/2, 250);
   textFont(f3, 16);
-  text("It's over Anakin, I have the high ground", width/2, 300);
+  text("Don't try it!", width/2, 350);
 }
