@@ -1,9 +1,19 @@
-h1 {
+body {
     margin-left: 10px;
+    text-align: center;
+}
+
+h1{
+    color: rgb(230, 50, 80);
+    margin-left: 0px;
 }
 
 .story {
+    border: 2px solid pink;
+    padding: 10px;
+    color: black;
+    width: 700px;
+    text-align: center;
     display: inline-block;
-    margin-left: 10px;
-    margin-right: 700px;
+
 }
