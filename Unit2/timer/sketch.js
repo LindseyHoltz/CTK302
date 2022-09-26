@@ -19,9 +19,12 @@ function draw() {
   switch(state){
     case 0:
       //images go here, text here
-      image(i1, width/2, height/2 - 130, 200, 100) ;
+      text("This is George. He has had many professions throughout his lifetime including...", width/2 - 150, height/2 + 150, 300, 300);
+      fill("black");
+      textSize(20);
+      image(i1, width/2, height/2 - 50, 300, 350) ;
       timer++ ;
-      if (timer > 3*60){
+      if (timer > 4*60){
         timer = 0; 
         state = 1;
       }
@@ -29,9 +32,12 @@ function draw() {
       
     case 1:
       //images and text
-      image(i2, width/2, height/2 - 130, 200, 100) ;
+      text("An elf in Santa's work shop.", width/2 - 150, height/2 + 150, 300, 300);
+      fill("black");
+      textSize(20);
+      image(i2, width/2, height/2 - 50, 300, 350) ;
       timer++ ;
-      if (timer > 4*60){
+      if (timer > 3*60){
         timer = 0; 
         state = 2;
       }
@@ -39,40 +45,52 @@ function draw() {
       
     case 2:
       //images and text
-      image(i3, width/2, height/2 - 130, 200, 100) ;
+      text("A baseball player for the Chicago Cubs.", width/2 - 150, height/2 + 150, 300, 300);
+      fill("black");
+      textSize(20);
+      image(i3, width/2, height/2 - 50, 300, 350) ;
       timer++ ;
       if (timer > 5*60){
-        timer = 5; 
+        timer = 0; 
         state = 3;
       }
       break; 
 
     case 3:
       //images and text
-      image(i4, width/2, height/2 - 130, 200, 100) ;
+      text("A Dunkin' Donuts worker.", width/2 - 150, height/2 + 150, 300, 300);
+      fill("black");
+      textSize(20);
+      image(i4, width/2, height/2 - 50, 300, 350) ;
       timer++ ;
       if (timer > 6*60){
-        timer = 6; 
+        timer = 0; 
         state = 4;
        }
        break; 
 
     case 4:
       //images and text
-      image(i5, width/2, height/2 - 130, 200, 100) ;
+      text("A magician in Vegas. He goes by the name Mr. Lop when he performs.", width/2 - 150, height/2 + 150, 300, 300);
+      fill("black");
+      textSize(20);
+      image(i5, width/2, height/2 - 50, 300, 350) ;
       timer++ ;
       if (timer > 7*60){
-        timer = 7; 
+        timer = 0; 
         state = 5;
       }
       break; 
 
     case 5:
       //images and text
-      image(i6, width/2, height/2 - 130, 200, 100) ;
+      text("And finally the King of Rabbits (and other small creatures).", width/2 - 150, height/2 + 100, 300, 300);
+      fill("black");
+      textSize(20);
+      image(i6, width/2, height/2 - 50, 350, 280) ;
       timer++ ;
       if (timer > 8*60){
-        timer = 8; 
+        timer = 0; 
         state = 6;
       }
       break; 
