@@ -10,13 +10,13 @@ function draw() {
 
   switch(state) {
     case 0:
-      background("lightgreen"); 
-      text("What do you call and alligator in a vest?", width/2, height/2);
+      background("red"); 
+      text("What do you call a cow with no legs?", width/2, height/2);
       break;  
 
     case 1: 
-    background("lightblue"); 
-    text("An investigator!", width/2, height/2);
+    background("yellow"); 
+    text("Ground beef!", width/2, height/2);
       break; 
 
 

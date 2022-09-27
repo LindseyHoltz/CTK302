@@ -11,13 +11,13 @@ function draw() {
 
   switch(state) {
     case 0:
-      background("lightgreen"); 
-      text("What do you call and alligator in a vest?", width/2, height/2);
+      background("pink"); 
+      text("What do you call a fake noodle?", width/2, height/2);
       break;  
 
     case 1: 
-    background("lightblue"); 
-    text("An investigator!", width/2, height/2);
+    background("purple"); 
+    text("An impasta!", width/2, height/2);
       break; 
 
   }
