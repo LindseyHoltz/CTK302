@@ -7,34 +7,34 @@ function setup() {
   i2 = loadImage("assets/spongebob.webp") ;
   i3 = loadImage("assets/patrick.webp") ;
   imageMode(CENTER);
-  textSize(15);
+  textSize(20);
 }
 
 function draw() {
   clear();
   numberOfTouches = touches.length;
-  text(numberOfTouches + ' touches', 5, 10);
+  text(numberOfTouches + ' touches', 5, 18);
   
   switch(numberOfTouches) {
-    case 0: 
-      text("Touch the screen for a Spongebob meme.", 5, 22) ; 
+    case 0:
+      text("Touch the screen for a Spongebob meme.", 5, 38, 355) ; 
       break ;
       
       case 1: 
       image(i1, width/2, height/2, 200, 200);
-       text("Wow so great! Touch the screen with another finger for a new meme.", 5, 22) ; 
+       text("Wow so great! Touch the screen with another finger for a new meme.", 5, 38, 355) ; 
       // put a picture here
       break ;
       
       case 2:
       image(i2, width/2, height/2, 200, 200);
-      text("This is a good one! Press the screen with another finger for a new meme.", 5, 22) ; 
+      text("This is a good one! Press the screen with another finger for a new meme.", 5, 38, 355) ; 
             // put a picture here
       break ;
       
       case 3:
       image(i3, width/2, height/2, 200, 200);
-      text("Wow! This is the last meme!", 5, 22) ; 
+      text("Wow! This is the last meme!", 5, 38, 355); 
             // put a picture here
       break ;
     
