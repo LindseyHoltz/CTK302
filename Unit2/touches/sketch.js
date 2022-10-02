@@ -17,24 +17,24 @@ function draw() {
   
   switch(numberOfTouches) {
     case 0:
-      text("Touch the screen for a Spongebob meme.", 5, 38, 355) ; 
+      text("Touch the screen for a Spongebob meme.", 5, 38, 355, 355) ; 
       break ;
       
       case 1: 
       image(i1, width/2, height/2, 200, 200);
-       text("Wow so great! Touch the screen with another finger for a new meme.", 5, 38, 355) ; 
+       text("Wow so great! Touch the screen with another finger for a new meme.", 5, 38, 355, 355) ; 
       // put a picture here
       break ;
       
       case 2:
       image(i2, width/2, height/2, 200, 200);
-      text("This is a good one! Press the screen with another finger for a new meme.", 5, 38, 355) ; 
+      text("This is a good one! Press the screen with another finger for a new meme.", 5, 38, 355, 355) ; 
             // put a picture here
       break ;
       
       case 3:
       image(i3, width/2, height/2, 200, 200);
-      text("Wow! This is the last meme!", 5, 38, 355); 
+      text("Wow! This is the last meme!", 5, 38, 355, 355); 
             // put a picture here
       break ;
     
