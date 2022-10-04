@@ -57,8 +57,8 @@ function draw() {
   fill("blue"); 
   rect(x, height-65, 100, 50);
   x = x + v ; 
-  if (x > width) {
-    x = -100; 
+  if (x > width + 50) {
+    x = - 50; 
   }
 
 
