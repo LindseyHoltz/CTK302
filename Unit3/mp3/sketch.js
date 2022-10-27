@@ -15,7 +15,7 @@ function setup() {
   rectMode(CENTER);
   imageMode(CENTER);
   i1 = loadImage("assets/menu.jpg");
-  i2 = loadImage("assets/cat.gif");
+  //i2 = loadImage("assets/cat.gif");
   i3 = loadImage("assets/greymouse.png");
   i4 = loadImage("assets/greymouse2.jpg");
   i5 = loadImage("assets/whitemouse.png");
@@ -123,7 +123,7 @@ function game() {
   
 
   // add a "frog"
-  image(i2, frogPos.x, frogPos.y, 100, 215);
+  //image(i2, frogPos.x, frogPos.y, 100, 215);
   //gif_createImg(frogPos.x, frogPos.y, 100, 215);
   checkForKeys();
 }
