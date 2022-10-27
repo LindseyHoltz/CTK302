@@ -9,7 +9,7 @@ function setup() {
 }
 
 function draw() {
-  image(i1, 300, 300, 600, 600);
+  //image(i1, 300, 300, 600, 600);
   
   cars.push(new Car());
 
