@@ -43,7 +43,6 @@ class Car {
     fill(this.r, this.g, this.b, this.opacity); 
     textSize(this.size); 
     ellipse(this.pos.x, this.pos.y, random(1, 40)); 
-    //text("Fire",this.pos.x, this.pos.y);
   }
 
   move() {
