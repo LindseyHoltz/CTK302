@@ -94,9 +94,9 @@ function draw() {
       textFont(f1); 
       fill("black"); 
       textSize(30);
-      text("Time: " + Math.trunc(10-timer / 60), 660, 50);
+      text("Time: " + Math.trunc(20-timer / 60), 640, 50);
       pop();
-      if(timer > 10*60) {
+      if(timer > 20*60) {
         timer = 0; 
         state = 3; 
       }
@@ -193,7 +193,9 @@ function game() {
   
 
   // add a "frog"
-  gif_createImg.position(frogPos.x, frogPos.y, 100, 215);
+  gif_createImg.position(frogPos.x - 50 , frogPos.y - 50, 100, 215);
+  //fill("red"); 
+  //ellipse(frogPos.x, frogPos.y, 50, 50); 
   //image(i2, frogPos.x, frogPos.y, 100, 215); 
   checkForKeys();
 }
@@ -204,9 +206,9 @@ function checkForKeys() {
   if (keyIsDown(UP_ARROW)) frogPos.y -= 5;
   if (keyIsDown(DOWN_ARROW)) frogPos.y += 5;
   
-  if (frogPos.x > width) frogPos.x = 800 ; 
+  if (frogPos.x > width - 50) frogPos.x = 749; 
   if (frogPos.x < 0) frogPos.x = 0 ; 
-  if (frogPos.y > height) frogPos.y = 800 ; 
+  if (frogPos.y > height - 100) frogPos.y = 699; 
   if (frogPos.y < 0) frogPos.y = 0 ; 
 }
 
