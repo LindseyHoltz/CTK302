@@ -1,51 +1,101 @@
 let cars = [];
+let tails = []; 
+let x = 0; 
 let frogPos;
 let state = 0; 
 let timer = 0; 
 let i1, i2, i3, i4, i5, i6, i7, i8, i9;
-//var gif_loadImg, gif_createImg; 
+let gif; 
+var bird; 
+var birds = []; 
+var mouse; 
+var mice = []; 
+var gif_loadImg, gif_createImg; 
+let f1;
 
 function preload() {
   //gif_loadImg = loadImage("assets/cat.gif");
-  //gif_createImg = loadImage("assets/cat.gif");
+  //gif_createImg = createImg("assets/cat.gif");
+  //gif = loadImage("assets/cat.gif"); 
 }
 
 function setup() {
   createCanvas(800, 800);
   rectMode(CENTER);
   imageMode(CENTER);
+  angleMode(DEGREES); 
+  //textAlign(CENTER); 
+
+  //gif_loadImg = loadImage("assets/cat.gif");
+  gif_createImg = createImg("assets/cat.gif");
+
+  birds[0] = loadImage("assets/whitemouseright.png");
+  birds[1] = loadImage("assets/whitemouseleft.png");
+
+  bird = loadImage("assets/whitemouseright.png"); 
+
+  mice [0] = loadImage("assets/greymouseright.png");
+  mice [1] = loadImage("assets/greymouseleft.png");
+
+  mouse = loadImage("assets/greymouseleft.png");
+
   i1 = loadImage("assets/menu.jpg");
-  //i2 = loadImage("assets/cat.gif");
-  i3 = loadImage("assets/greymouse.png");
-  i4 = loadImage("assets/greymouse2.jpg");
-  i5 = loadImage("assets/whitemouse.png");
-  i6 = loadImage("assets/whitemouse2.jpg");
+  i2 = loadImage("assets/cat.gif");
+  i3 = loadImage("assets/greymouse.gif");
+  i4 = loadImage("assets/whitemouse.gif");
+  i5 = loadImage("assets/whitemouseright.png");
+  i6 = loadImage("assets/whitemouseleft.png");
   i7 = loadImage("assets/woodfloor.jpg");
   i8 = loadImage("assets/win.jpg");
   i9 = loadImage("assets/lose.jpg");
 
+
+  f1 = loadFont("assets/mario.ttf");
+
   // Spawn objects
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 2; i++) {
     cars.push(new Car());
   }
 
+  for (let i = 0; i < 2; i++) {
+    tails.push(new Tail ());
+  }
+
   // initialize the "frog position" vector
-  frogPos = createVector(width / 2, height - 110);
+  frogPos = createVector(width / 2, height / 2);
 }
 
 function draw() {
   
   switch(state) {
     case 0: //menu
-      image(i1, 400, 400); 
-      text("click to start", width/2, height/2); 
+      image(i1, 400, 400);
+      push(); 
+      fill("#61a06e"); 
+      textFont(f1, 50); 
+      text("click to start", x, height/2 - 80);
+      x += 5; 
+
+      if (x > width) {
+        x = -450;
+      }
+      pop(); 
+
+    gif_createImg.size(100, 215);
+    gif_createImg.position(-100, -100, 100, 215);
       break;
       
     case 1: 
       image(i7, 400, 400, 800, 800); 
       game();
       timer++; 
+      push();
+      textFont(f1); 
+      fill("black"); 
+      textSize(30);
+      text("Time: " + Math.trunc(10-timer / 60), 660, 50);
+      pop();
       if(timer > 10*60) {
         timer = 0; 
         state = 3; 
@@ -54,10 +104,14 @@ function draw() {
       
     case 2: //win
       image(i8, 400, 400, 800, 800);
+      gif_createImg.size(100, 215);
+      gif_createImg.position(-100, -100, 100, 215);
       break;
       
     case 3: //lose
-      image(i9, 400, 400, 800, 800); 
+      image(i9, 400, 400, 800, 800);
+      gif_createImg.size(100, 215);
+      gif_createImg.position(-100, -100, 100, 215); 
       break;
       
       
@@ -74,8 +128,16 @@ function resetTheGame() {
    for (let i = 0; i < 2; i++) {
     cars.push(new Car());
   }
-  timer = 0; 
+
+  timer = 0;
+
+  tails = []; 
   
+  for (let i = 0; i < 2; i++) {
+   tails.push(new Tail());
+ }
+
+ timer = 0;
 }
 
 
@@ -88,12 +150,12 @@ function mouseReleased() {
       break;
     
     case 2: // win screen
-      resetTheGame(); 
+      resetTheGame();
       state = 0; 
       break; 
       
     case 3: // lose screen
-      resetTheGame(); 
+      resetTheGame();
       state = 0; 
       break; 
   }
@@ -114,17 +176,25 @@ function game() {
       cars.splice(i, 1);
     }
   }
-  
-  
-  if (cars.length == 0) {
-    state = 2; 
+
+  for (let i = 0; i < tails.length; i++) {
+    tails [i].display();
+    tails [i].move();
+    if (tails[i].pos.dist(frogPos) < 30) {
+      tails.splice(i, 1);
+    }
   }
+  
+  
+  if ((cars.length == 0) && (tails.length ==0)) {
+    state = 2; 
+ }
   
   
 
   // add a "frog"
-  //image(i2, frogPos.x, frogPos.y, 100, 215);
-  //gif_createImg(frogPos.x, frogPos.y, 100, 215);
+  gif_createImg.position(frogPos.x, frogPos.y, 100, 215);
+  //image(i2, frogPos.x, frogPos.y, 100, 215); 
   checkForKeys();
 }
 
@@ -134,32 +204,93 @@ function checkForKeys() {
   if (keyIsDown(UP_ARROW)) frogPos.y -= 5;
   if (keyIsDown(DOWN_ARROW)) frogPos.y += 5;
   
-  if (frogPos.x > width) frogPos.x = 0 ; 
-  if (frogPos.x < 0) frogPos.x = width ; 
-  if (frogPos.y > height) frogPos.y = 0 ; 
-  if (frogPos.y < 0) frogPos.y = height ; 
+  if (frogPos.x > width) frogPos.x = 800 ; 
+  if (frogPos.x < 0) frogPos.x = 0 ; 
+  if (frogPos.y > height) frogPos.y = 800 ; 
+  if (frogPos.y < 0) frogPos.y = 0 ; 
 }
 
 class Car {
   // constructor and attributes
   constructor() {
-    this.pos = createVector(random(width), 100); // initialize your attributes here
-    this.velocity = createVector(0, random(1, 5));
-    this.r = random(255);
-    this.g = random(255);
-    this.b = random(255);
-    this.o = random(100);
-    this.size = random(48, 128);
-    this.img = i3; 
-    // this.type = random(3);
+    this.pos = createVector(random(width), random(height)); // initialize your attributes here
+    this.place = createVector(random(width), random(height));
+    this.velocity = createVector(random (-6, 6), random(1, 6));
+    this.width = random(10, 50);
+    this.height = random(90, 130); 
+    this.rotate = random(0, 360);
+    this.birdNum = floor(random(birds.length-1)); 
+    this.mouseNum = floor(random(mice.length-1)); 
+    this.timer = 0; 
+    this.maxTimer = random(10,60); 
+    //this.type = random(1);
+
+    if(random(2) > 1) {
+      this.birdNum; 
+    } else {
+      this.mouseNum; 
+    }
   }
   // methods
 
   display() {
     // this can be text, images, or shapes
-    image (this.img, this.pos.x, this.pos.y, 50, 100);
+    //image (this.img, this.pos.x, this.pos.y, 50, this.height);
+
+    image(birds[this.birdNum], this.pos.x, this.pos.y, 50, this.height);
+
+    this.timer = this.timer + 1;
+    if (this.timer > this.maxTimer) {
+      this.birdNum = this.birdNum + 1;
+      if (this.birdNum > birds.length - 1) this.birdNum = 0;
+      this.timer = 0 ;
+    }
   }
 
+
+  move() {
+    this.pos.add(this.velocity);
+    if (this.pos.x > width) this.pos.x = 0;
+    if (this.pos.x < 0) this.pos.x = width;
+    if (this.pos.y > height) this.pos.y = 0;
+    if (this.pos.y < 0) this.pos.y = height;
+  }
+}
+
+class Tail {
+  // constructor and attributes
+  constructor() {
+    this.pos = createVector(random(width), random(height)); // initialize your attributes here
+    this.velocity = createVector(random (-6, 6), random(1, 6));
+    this.width = random(10, 50);
+    this.height = random(90, 130); 
+    this.rotate = random(0, 360);
+    this.mouseNum = floor(random(mice.length-1)); 
+    this.timer = 0; 
+    this.maxTimer = random(10,60); 
+    //this.type = random(1);
+
+    //if(random(2) > 1) {
+      //this.birdNum; 
+    //} else {
+     // this.mouseNum; 
+    //}
+  }
+  // methods
+
+  display() {
+    // this can be text, images, or shapes
+    //image (this.img, this.pos.x, this.pos.y, 50, this.height);
+
+    image(mice[this.mouseNum], this.pos.x, this.pos.y, 50, this.height);
+
+    this.timer = this.timer + 1;
+    if (this.timer > this.maxTimer) {
+      this.mouseNum = this.mouseNum + 1;
+      if (this.mouseNum > mice.length - 1) this.mouseNum = 0;
+      this.timer = 0 ;
+    }
+  }
   move() {
     this.pos.add(this.velocity);
     if (this.pos.x > width) this.pos.x = 0;
