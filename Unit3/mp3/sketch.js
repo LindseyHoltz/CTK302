@@ -54,11 +54,11 @@ function setup() {
 
   // Spawn objects
 
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 5; i++) {
     cars.push(new Car());
   }
 
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 5; i++) {
     tails.push(new Tail ());
   }
 
@@ -125,7 +125,7 @@ function resetTheGame() {
   
   cars = []; 
   
-   for (let i = 0; i < 2; i++) {
+   for (let i = 0; i < 5; i++) {
     cars.push(new Car());
   }
 
@@ -133,7 +133,7 @@ function resetTheGame() {
 
   tails = []; 
   
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 5; i++) {
    tails.push(new Tail());
  }
 
@@ -201,10 +201,10 @@ function game() {
 }
 
 function checkForKeys() {
-  if (keyIsDown(LEFT_ARROW)) frogPos.x -= 5;
-  if (keyIsDown(RIGHT_ARROW)) frogPos.x += 5;
-  if (keyIsDown(UP_ARROW)) frogPos.y -= 5;
-  if (keyIsDown(DOWN_ARROW)) frogPos.y += 5;
+  if (keyIsDown(LEFT_ARROW)) frogPos.x -= 7;
+  if (keyIsDown(RIGHT_ARROW)) frogPos.x += 7;
+  if (keyIsDown(UP_ARROW)) frogPos.y -= 7;
+  if (keyIsDown(DOWN_ARROW)) frogPos.y += 7;
   
   if (frogPos.x > width - 50) frogPos.x = 749; 
   if (frogPos.x < 0) frogPos.x = 0 ; 
