@@ -65,7 +65,7 @@ function draw() {
   // Text that makes CTK type in the background
   fill('lightgreen');
   noStroke();
-  textSize(300);
+  textSize(100);
   textAlign(CENTER);
   textFont(f1); 
   text("Turtle", width / 2, height / 2);
