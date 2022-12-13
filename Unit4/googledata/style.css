@@ -1,0 +1,29 @@
+a {
+    font-family: Helvetica, Arial, sans-serif;
+    border: 0px solid pink;
+    background-color: #D4EAFA;
+    padding: 10px;
+    padding-right: 0px;
+    padding-left: 0px;
+    color: black;
+    width: 900px;
+    text-align: center;
+    display: inline-block;
+    font-size: 30px;
+}
+a:link {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: rgb(28, 109, 153);
+    text-decoration: underline;
+  }
