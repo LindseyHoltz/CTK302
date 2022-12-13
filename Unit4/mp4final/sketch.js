@@ -29,8 +29,10 @@ function setup() {
   images[7] = loadImage('assets/cat5.png');
   images[8] = loadImage('assets/cat6.png');
   images[9] = loadImage('assets/catWin.png');
-  canvasVariable = createCanvas(displayWidth, displayHeight);
+  //canvasVariable = createCanvas(displayWidth, displayHeight);
+  canvasVariable = createCanvas(720, 1280);
   //canvasVariable.touchStarted();
+  
   num = 0;
   intervalCurrentPosition(positionPing, 5000);
   places.push(new Place(40.50985450, -88.98914693, "Julian Hall 064", .0002)); // Starting area in Julian - 0 
@@ -57,7 +59,7 @@ function draw() {
       background(images[1]);
       push(); 
       textFont(bubbly, 50); 
-      text("Six cats have been set loose in Julian Hall!\n With the help of the given clues, walk around the building to locate and find the cats.\n Collect all six cats to win!", displayWidth/2, displayHeight/2, displayWidth, displayHeight);
+      text("Six cats have been set loose in Julian Hall!\n With the help of the given clues, walk around the building to locate and find the cats.\n Collect all six cats to win!", 10, 427, 720, 1280);
       pop(); 
       break;
     case 2: // CLUES
@@ -65,7 +67,7 @@ function draw() {
       push(); 
       textFont(bubbly); 
       textSize(50); 
-      text(clues[cluesindex], displayWidth/2, displayHeight/2, displayWidth, displayHeight); 
+      text(clues[cluesindex], width/2, height/2, 720, 1280); 
       pop(); 
       break;
     case 3: // Max - 0 
