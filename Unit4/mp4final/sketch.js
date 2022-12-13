@@ -67,7 +67,7 @@ function draw() {
       push(); 
       textFont(bubbly); 
       textSize(50); 
-      text(clues[cluesindex], width/2, height/2, 720, 1280); 
+      text(clues[cluesindex], width/2, height/2); 
       pop(); 
       break;
     case 3: // Max - 0 
