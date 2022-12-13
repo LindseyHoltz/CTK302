@@ -35,15 +35,12 @@ function setup() {
   
   num = 0;
   intervalCurrentPosition(positionPing, 5000);
-  places.push(new Place(40.50985450, -88.98914693, "Julian Hall 064", .0002)); // Starting area in Julian - 0 
-  places.push(new Place(40.50931521, -88.98866339, "Rose's Office", .0002)); // Professor's office in Julian - 1
-  places.push(new Place(40.50979896, -88.98923233, "Electrical Room", .0002)); // Electrical Room of Julian - 2 
-  places.push(new Place(40.50946499, -88.98911583, "Music Therapy Room", .0002)); // Music Therapy Room of Julian - 3 
-  places.push(new Place(40.50978191, -88.98909065, "Storage Room", .0002)); // Storage Room of Julian -4 
-  places.push(new Place(40.50949390, -88.98887783, "Mechanical Room", .0002)); // Mechanical Room of Julian -5 
-  
-  //places.push(new Place(40.47860923186, -88.96824420, "Roses room", .0002)); // Mechanical Room of Julian - 4 
-  //places.push(new Place(40.50795058179, -88.925113390, "Lindseys room", .0002)); // Mechanical Room of Julian -5 
+  places.push(new Place(40.50985450, -88.98914693, "Julian Hall 064", .02)); // Starting area in Julian - 0 
+  places.push(new Place(40.50931521, -88.98866339, "Rose's Office", .02)); // Professor's office in Julian - 1
+  places.push(new Place(40.50979896, -88.98923233, "Electrical Room", .02)); // Electrical Room of Julian - 2 
+  places.push(new Place(40.50946499, -88.98911583, "Music Therapy Room", .02)); // Music Therapy Room of Julian - 3 
+  places.push(new Place(40.50978191, -88.98909065, "Storage Room", .02)); // Storage Room of Julian -4 
+  places.push(new Place(40.50949390, -88.98887783, "Mechanical Room", .02)); // Mechanical Room of Julian -5 
   
   bubbly = loadFont("assets/bubbly.otf"); 
   
