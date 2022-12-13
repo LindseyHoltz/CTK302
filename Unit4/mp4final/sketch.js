@@ -30,7 +30,6 @@ function setup() {
   images[8] = loadImage('assets/cat6.png');
   images[9] = loadImage('assets/catWin.png');
   canvasVariable = createCanvas(displayWidth, displayHeight);
-  //canvasVariable = createCanvas(1080, 1920);
   //canvasVariable.touchStarted();
   num = 0;
   intervalCurrentPosition(positionPing, 5000);
@@ -57,7 +56,7 @@ function draw() {
     case 1: // RULES
       background(images[1]);
       push(); 
-      textFont(bubbly, 70); 
+      textFont(bubbly, 50); 
       text("Six cats have been set loose in Julian Hall!\n With the help of the given clues, walk around the building to locate and find the cats.\n Collect all six cats to win!", 250, 190, displayWidth, displayHeight);
       pop(); 
       break;
@@ -65,7 +64,7 @@ function draw() {
       background(images[2]);
       push(); 
       textFont(bubbly); 
-      textSize(75); 
+      textSize(50); 
       text(clues[cluesindex], 250, height/2, displayWidth, displayHeight); 
       pop(); 
       break;
