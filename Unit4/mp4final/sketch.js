@@ -58,7 +58,7 @@ function draw() {
       background(images[1]);
       push(); 
       textFont(bubbly, 70); 
-      text("Six cats have been set loose in Julian Hall!\n With the help of the given clues, walk around the building to locate and find the cats.\n Collect all six cats to win!", 250, 190, windowWidth, windowHeight);
+      text("Six cats have been set loose in Julian Hall!\n With the help of the given clues, walk around the building to locate and find the cats.\n Collect all six cats to win!", 250, 190, displayWidth, displayHeight);
       pop(); 
       break;
     case 2: // CLUES
@@ -66,7 +66,7 @@ function draw() {
       push(); 
       textFont(bubbly); 
       textSize(75); 
-      text(clues[cluesindex], 250, height/2, windowWidth, windowHeight); 
+      text(clues[cluesindex], 250, height/2, displayWidth, displayHeight); 
       pop(); 
       break;
     case 3: // Max - 0 
